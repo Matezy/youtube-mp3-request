@@ -4,7 +4,8 @@ import os
 
 app = Flask(__name__)
 
-DOWNLOAD_FOLDER = "downloads"
+# Letöltési mappa a C:\Users\Mate\Desktop\Zene
+DOWNLOAD_FOLDER = r'C:\Users\Mate\Desktop\Zene'
 os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
 
 @app.route("/", methods=["GET"])
@@ -26,7 +27,7 @@ def handle_request():
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-        'cookiefile': 'cookies.txt', # Add this line to use the cookies
+        'cookiefile': 'cookies.txt', # Ha szükséges, cookie-kat is használhatunk
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
