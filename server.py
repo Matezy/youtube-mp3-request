@@ -26,6 +26,7 @@ def handle_request():
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
+        'cookiefile': 'cookies.txt', # Add this line to use the cookies
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
